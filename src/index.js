@@ -6,12 +6,14 @@ import {
     connectDB
 } from "./lib/db.js";
 import cors from "cors"
-
+import job from "./lib/cron.js";
 const app = express();
 const PORT = process.env.port || 3000;
 
+job.start()
 app.use(cors())
 app.use(express.json())
+
 app.use("/api/auth", authRoutes)
 app.use("/api/books", bookRoutes)
 
