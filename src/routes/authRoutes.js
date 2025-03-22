@@ -106,7 +106,7 @@ router.post("/login", async (req, res) => {
             });
         }
 
-        const user = User.findOne({
+        const user = await User.findOne({
             email
         })
 
